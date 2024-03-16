@@ -5,6 +5,8 @@ import com.adytechmc.combattimer.config.makeJsonReadable;
 import com.adytechmc.combattimer.events.ModEventsHandler;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -23,6 +25,8 @@ public class CombatTimer implements ModInitializer {
 		makeJsonReadable.addEmptyLineBetweenJSONArguments("config/CombatTimerConfig.json5");
 		LOGGER.info("Destroying Combat Loggers since 2024.");
 		AttackEntityCallback.EVENT.register(ModEventsHandler::CombatEvent);
+		ServerLivingEntityEvents.ALLOW_DAMAGE.register(ModEventsHandler::ProjectileCombatEvent);
+		ServerLivingEntityEvents.AFTER_DEATH.register(ModEventsHandler::EntityDeathEvent);
 		ServerTickEvents.END_SERVER_TICK.register(ModEventsHandler::TickEvent);
 		ServerPlayConnectionEvents.DISCONNECT.register(ModEventsHandler::DisconnectEventHandler);
 	}

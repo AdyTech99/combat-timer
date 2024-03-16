@@ -3,7 +3,7 @@
 	"package": "com.adytechmc.combattimer.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+      "ProjectileAttackMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

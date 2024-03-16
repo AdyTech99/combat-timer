@@ -22,6 +22,6 @@ public class ModConfig {
     @SerialEntry
     public final String no_more_combat_tagged_message = "[CombatTimer] Combat Tag has expired You may log off.";
 
-    @SerialEntry("If someone punches someone, should they be combat tagged?")
+    @SerialEntry("If someone punches someone using their fist (no tool/weapon), should they be combat tagged?")
     public final boolean combat_tag_if_punched = true;
 }
