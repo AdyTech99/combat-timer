@@ -1,6 +1,7 @@
 package com.adytechmc.combattimer.interaction;
 
 import com.adytechmc.combattimer.config.ModConfig;
+import com.terraformersmc.modmenu.util.mod.Mod;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;

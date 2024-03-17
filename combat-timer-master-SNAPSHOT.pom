@@ -34,7 +34,7 @@
         <plugins>
             <!-- Compiler plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>com.adytechmc.combattimer</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>

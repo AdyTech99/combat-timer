@@ -15,6 +15,9 @@ public class makeJsonReadable {
             boolean afterComma = false;
 
             while ((line = reader.readLine()) != null) {
+                boolean lineEndsWithComma = line.trim().endsWith(","); // Check if the line ends with a comma after trimming whitespace
+                boolean lineNotEmpty = !line.trim().isEmpty(); // Check if the line is not empty after trimming whitespace
+
                 for (char c : line.toCharArray()) {
                     if (c == '"') {
                         insideQuotes = !insideQuotes;
@@ -26,7 +29,7 @@ public class makeJsonReadable {
                 writer.write(line);
                 writer.newLine();
 
-                if (afterComma) {
+                if (lineNotEmpty && afterComma && !lineEndsWithComma) {
                     writer.newLine(); // Add an empty line after each JSON argument
                     afterComma = false;
                 }

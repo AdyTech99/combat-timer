@@ -21,8 +21,8 @@ public class CombatTimer implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		//makeJsonReadable.addEmptyLineBetweenJSONArguments("config/CombatTimerConfig.json5");
 		ModConfig.HANDLER.load();
-		makeJsonReadable.addEmptyLineBetweenJSONArguments("config/CombatTimerConfig.json5");
 		LOGGER.info("Destroying Combat Loggers since 2024.");
 		AttackEntityCallback.EVENT.register(ModEventsHandler::CombatEvent);
 		ServerLivingEntityEvents.ALLOW_DAMAGE.register(ModEventsHandler::ProjectileCombatEvent);

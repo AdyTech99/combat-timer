@@ -2,12 +2,12 @@ package com.adytechmc.combattimer.events;
 
 import com.adytechmc.combattimer.CombatHandler;
 import com.adytechmc.combattimer.config.ModConfig;
+import com.terraformersmc.modmenu.util.mod.Mod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ToolItem;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.util.ActionResult;
@@ -53,7 +53,7 @@ public class ModEventsHandler {
     }
 
     private static boolean friendlyFireExemption(PlayerEntity attacker, Hand hand){
-        return ModConfig.HANDLER.instance().combat_tag_if_punched && !(attacker.getStackInHand(hand).getItem() instanceof ToolItem);
+        return (!ModConfig.HANDLER.instance().allow_friendly_fire && !attacker.getStackInHand(hand).getItem().isDamageable());
     }
 
     public static void EntityDeathEvent(LivingEntity livingEntity, DamageSource damageSource) {
